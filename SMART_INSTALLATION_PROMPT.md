@@ -47,9 +47,10 @@ Then show me what you detected and ask only what you can't determine:
 1. Install submodule: `git submodule add https://github.com/simonbloom/bloom-brain.git .claude/bloom-brain`
 2. Run initialization: `./.claude/bloom-brain/scripts/init-bloom-brain.sh`
 3. Create .claude/bloom-brain.config.json with the detected + confirmed settings
-4. Update my CLAUDE.md file with the proper Bloom Brain integration and all command references
-5. Test the installation works properly
-6. Provide clear restart instructions for Claude Code
+4. **SAFELY update my CLAUDE.md file** with intelligent merge (preserve all existing custom content, only add/update Bloom Brain sections)
+5. Create backup of original CLAUDE.md before any modifications
+6. Test the installation works properly
+7. Provide clear restart instructions for Claude Code
 
 **Expected outcome:**
 - All 35+ commands (/understand, /ultra-debug, /new-feature, etc.) available after restart

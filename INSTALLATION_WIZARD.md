@@ -9,7 +9,7 @@ Please help me set this up by:
 
 1. **Installing the submodule**: Add Bloom Brain as a git submodule at .claude/bloom-brain
 2. **Configuring the project**: Ask me configuration questions about my project setup
-3. **Updating CLAUDE.md**: Add Bloom Brain configuration and command references
+3. **SAFELY updating CLAUDE.md**: Intelligently merge Bloom Brain content while preserving all existing custom sections
 4. **Setting up config files**: Create bloom-brain.config.json with my preferences
 5. **Providing restart instructions**: Tell me how to restart Claude Code to activate commands
 
@@ -27,7 +27,7 @@ Please ask me these configuration questions to customize the setup:
 After I answer these questions, please:
 1. Install the Bloom Brain submodule
 2. Initialize the system with my configuration
-3. Update my CLAUDE.md file with the proper Bloom Brain integration
+3. SAFELY merge Bloom Brain content with existing CLAUDE.md (preserve all custom sections)
 4. Set up the bloom-brain.config.json file
 5. Test that the installation worked
 6. Give me restart instructions

@@ -61,8 +61,21 @@ Create `.claude/bloom-brain.config.json` with my configuration answers:
 }
 ```
 
-### Step 3: Update CLAUDE.md
-Add or update my CLAUDE.md file with this structure:
+### Step 3: SAFELY Merge Bloom Brain content with existing CLAUDE.md
+
+**IMPORTANT: This is a safe merge that preserves all existing custom content**
+
+1. **First, create a backup:**
+```bash
+cp CLAUDE.md CLAUDE.md.backup.$(date +%Y%m%d_%H%M%S) 2>/dev/null || echo "No existing CLAUDE.md found"
+```
+
+2. **Then intelligently merge content:**
+   - **PRESERVE**: All existing custom sections, task management systems, project-specific rules
+   - **UPDATE**: Only generic Bloom Brain command sections that are outdated
+   - **ADD**: New Bloom Brain commands and features
+
+3. **Use this structure as a guide, but preserve all existing custom content:**
 
 ```markdown
 # CLAUDE.md
