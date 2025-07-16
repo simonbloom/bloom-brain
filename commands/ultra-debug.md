@@ -4,31 +4,29 @@ Ultra-comprehensive debugging analysis using ALL available MCP tools for system-
 
 ## Ultra-Debug Architecture
 
-This command orchestrates **ALL 7 MCP tools** to provide the most comprehensive debugging analysis possible:
+This command orchestrates **ALL 6 MCP tools** to provide the most comprehensive debugging analysis possible:
 
-### Infrastructure & Deployment Layer
-1. **Railway MCP** - Service health, deployment logs, infrastructure metrics, resource usage
-2. **GitHub MCP** - Recent commits, open issues, PR status, repository health, security alerts
+### Repository & Code Management Layer
+1. **GitHub MCP** - Recent commits, open issues, PR status, repository health, security alerts
 
 ### Database & Backend Layer  
-3. **Supabase MCP** - Database logs, query performance, schema health, project status, security advisors
+2. **Supabase MCP** - Database logs, query performance, schema health, project status, security advisors
 
 ### Frontend & UI Layer
-4. **Browser Tools MCP** - Console errors, network logs, performance audits, accessibility scans, screenshots
-5. **Puppeteer MCP** - Advanced browser automation, deep UI testing, interaction flow analysis
+3. **Browser Tools MCP** - Console errors, network logs, performance audits, accessibility scans, screenshots
+4. **Puppeteer MCP** - Advanced browser automation, deep UI testing, interaction flow analysis
 
 ### Code & Documentation Layer
-6. **Context7 MCP** - Library documentation verification, dependency analysis, code compliance
-7. **Brave Search MCP** - Latest bug reports, known issues, security vulnerabilities, best practices
+5. **Context7 MCP** - Library documentation verification, dependency analysis, code compliance
+6. **Brave Search MCP** - Latest bug reports, known issues, security vulnerabilities, best practices
 
 ## Ultra-Analysis Process
 
-### Phase 1: Multi-MCP Data Collection (Parallel Execution - 8-12 minutes)
-All 7 MCP tools run simultaneously for maximum efficiency:
+### Phase 1: Multi-MCP Data Collection (Parallel Execution - 6-10 minutes)
+All 6 MCP tools run simultaneously for maximum efficiency:
 
 ```
 🔄 PARALLEL MULTI-MCP EXECUTION:
-├── 🚀 Railway MCP: Infrastructure & deployment analysis
 ├── 🔧 GitHub MCP: Repository health & security analysis
 ├── 🗄️ Supabase MCP: Database performance & security analysis
 ├── 🌐 Browser Tools MCP: Console & network analysis
@@ -57,7 +55,7 @@ Complete implementation roadmap with multi-MCP integration:
 ```
 🔄 SOLUTION GENERATION:
 ├── 🛠️ Multi-tool implementation strategies
-├── 🚀 Infrastructure optimization (Railway + GitHub)
+├── 🔧 Repository & code optimization (GitHub + Context7)
 ├── 🗄️ Database performance tuning (Supabase + correlations)
 ├── 🎨 UI/UX improvements (Browser Tools + Puppeteer)
 ├── 📚 Code quality enhancements (Context7 + Brave Search)
@@ -67,21 +65,15 @@ Complete implementation roadmap with multi-MCP integration:
 
 ## Multi-MCP Tool Integration
 
-### Infrastructure Analysis (Railway + GitHub)
-- **Railway MCP Tools Used:**
-  - `mcp__railway-mcp__project_list` - Active projects and health
-  - `mcp__railway-mcp__service_list` - Service status and performance
-  - `mcp__railway-mcp__deployment_list` - Recent deployments and issues
-  - `mcp__railway-mcp__logs-environment` - Infrastructure logs and errors
-  - `mcp__railway-mcp__metrics-get` - Resource usage and performance metrics
-  - `mcp__railway-mcp__monitoring-alerts` - System alerts and notifications
-
+### Repository & Code Management Analysis (GitHub)
 - **GitHub MCP Tools Used:**
   - `mcp__github__list_commits` - Recent commit history and patterns
   - `mcp__github__list_issues` - Open issues and bug reports
   - `mcp__github__list_pull_requests` - PR status and merge conflicts
   - `mcp__github__search_code` - Code quality and vulnerability scanning
   - `mcp__github__get_pull_request_status` - CI/CD pipeline health
+  - `mcp__github__get_pull_request_files` - Code changes and impact analysis
+  - `mcp__github__get_pull_request_reviews` - Code review quality assessment
 
 ### Database Analysis (Supabase)
 - **Supabase MCP Tools Used:**
@@ -122,25 +114,22 @@ Complete implementation roadmap with multi-MCP integration:
 ```
 🔍 ULTRA-DEBUG SYSTEM ANALYSIS for: $ARGUMENTS
 Generated: [timestamp]
-Analysis Depth: Ultra-Comprehensive (7 MCP Tools)
-Total Analysis Time: 15-23 minutes
-Coverage: Infrastructure + Database + Frontend + Code + Documentation
+Analysis Depth: Ultra-Comprehensive (6 MCP Tools)
+Total Analysis Time: 12-18 minutes
+Coverage: Repository + Database + Frontend + Code + Documentation
 
-🚀 INFRASTRUCTURE HEALTH (Railway + GitHub):
-├── 🏗️ Deployment Status: [deployment_health]/100
-│   ├── Active Services: [active_services]/[total_services]
-│   ├── Failed Deployments: [failed_deployments]
-│   ├── Resource Usage: [resource_usage]%
-│   └── Infrastructure Alerts: [infrastructure_alerts]
+🔧 REPOSITORY & CODE HEALTH (GitHub):
 ├── 📊 Repository Health: [repo_health]/100
 │   ├── Open Issues: [open_issues] ([critical_issues] critical)
 │   ├── PR Status: [pr_status] ([merge_conflicts] conflicts)
 │   ├── Recent Commits: [recent_commits] ([breaking_changes] breaking)
-│   └── Security Alerts: [security_alerts]
-└── 🔗 Infrastructure-Repository Correlations:
-    ├── [infra_repo_correlation_1]: [correlation_description_1]
-    ├── [infra_repo_correlation_2]: [correlation_description_2]
-    └── [infra_repo_correlation_3]: [correlation_description_3]
+│   ├── Security Alerts: [security_alerts]
+│   ├── Code Quality: [code_quality]/100
+│   └── Review Coverage: [review_coverage]%
+└── 🔗 Repository-Code Correlations:
+    ├── [repo_code_correlation_1]: [correlation_description_1]
+    ├── [repo_code_correlation_2]: [correlation_description_2]
+    └── [repo_code_correlation_3]: [correlation_description_3]
 
 🗄️ DATABASE HEALTH (Supabase):
 ├── 📊 Database Performance: [db_performance]/100
@@ -222,20 +211,20 @@ Coverage: Infrastructure + Database + Frontend + Code + Documentation
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                           MULTI-MCP CORRELATION ANALYSIS                    │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│ INFRASTRUCTURE ↔ FRONTEND CORRELATIONS:                                    │
-│ ├── [infra_frontend_correlation_1]: [correlation_description_1]            │
-│ ├── [infra_frontend_correlation_2]: [correlation_description_2]            │
-│ └── [infra_frontend_correlation_3]: [correlation_description_3]            │
+│ REPOSITORY ↔ FRONTEND CORRELATIONS:                                        │
+│ ├── [repo_frontend_correlation_1]: [correlation_description_1]             │
+│ ├── [repo_frontend_correlation_2]: [correlation_description_2]             │
+│ └── [repo_frontend_correlation_3]: [correlation_description_3]             │
 │                                                                             │
 │ DATABASE ↔ UI CORRELATIONS:                                               │
 │ ├── [db_ui_correlation_1]: [correlation_description_1]                    │
 │ ├── [db_ui_correlation_2]: [correlation_description_2]                    │
 │ └── [db_ui_correlation_3]: [correlation_description_3]                    │
 │                                                                             │
-│ CODE ↔ DEPLOYMENT CORRELATIONS:                                           │
-│ ├── [code_deployment_correlation_1]: [correlation_description_1]          │
-│ ├── [code_deployment_correlation_2]: [correlation_description_2]          │
-│ └── [code_deployment_correlation_3]: [correlation_description_3]          │
+│ CODE ↔ DOCUMENTATION CORRELATIONS:                                        │
+│ ├── [code_documentation_correlation_1]: [correlation_description_1]       │
+│ ├── [code_documentation_correlation_2]: [correlation_description_2]       │
+│ └── [code_documentation_correlation_3]: [correlation_description_3]       │
 │                                                                             │
 │ SECURITY ↔ MULTI-LAYER CORRELATIONS:                                      │
 │ ├── [security_multi_correlation_1]: [correlation_description_1]           │
@@ -245,27 +234,27 @@ Coverage: Infrastructure + Database + Frontend + Code + Documentation
 
 🛠️ ULTRA-COMPREHENSIVE SOLUTIONS:
 
-🚀 INFRASTRUCTURE OPTIMIZATION (Railway + GitHub Integration):
-├── 🏗️ Deployment Pipeline Optimization:
-│   ├── [deployment_optimization_1]: [description_1]
-│   │   ├── Tools: Railway MCP + GitHub MCP
+🔧 REPOSITORY & CODE OPTIMIZATION (GitHub + Context7 Integration):
+├── 🏗️ Code Quality Pipeline Optimization:
+│   ├── [code_optimization_1]: [description_1]
+│   │   ├── Tools: GitHub MCP + Context7 MCP
 │   │   ├── Implementation: [implementation_1]
 │   │   ├── Expected Impact: [expected_impact_1]
 │   │   └── Monitoring: [monitoring_1]
-│   ├── [deployment_optimization_2]: [description_2]
-│   │   ├── Tools: Railway MCP + GitHub MCP
+│   ├── [code_optimization_2]: [description_2]
+│   │   ├── Tools: GitHub MCP + Context7 MCP
 │   │   ├── Implementation: [implementation_2]
 │   │   ├── Expected Impact: [expected_impact_2]
 │   │   └── Monitoring: [monitoring_2]
-│   └── [deployment_optimization_3]: [description_3]
-│       ├── Tools: Railway MCP + GitHub MCP
+│   └── [code_optimization_3]: [description_3]
+│       ├── Tools: GitHub MCP + Context7 MCP
 │       ├── Implementation: [implementation_3]
 │       ├── Expected Impact: [expected_impact_3]
 │       └── Monitoring: [monitoring_3]
-├── 📊 Resource Optimization:
-│   ├── [resource_optimization_1]: [description_1]
-│   ├── [resource_optimization_2]: [description_2]
-│   └── [resource_optimization_3]: [description_3]
+├── 📊 Repository Health Optimization:
+│   ├── [repo_optimization_1]: [description_1]
+│   ├── [repo_optimization_2]: [description_2]
+│   └── [repo_optimization_3]: [description_3]
 └── 🔒 Security Hardening:
     ├── [security_hardening_1]: [description_1]
     ├── [security_hardening_2]: [description_2]
@@ -381,17 +370,12 @@ Coverage: Infrastructure + Database + Frontend + Code + Documentation
 └─────────────────────────────────────────────────────────────────────────────┘
 
 🔍 MULTI-MCP TOOL CONTRIBUTION ANALYSIS:
-├── 🚀 RAILWAY MCP FINDINGS:
-│   ├── Infrastructure Issues: [railway_infrastructure_issues]
-│   ├── Deployment Problems: [railway_deployment_problems]
-│   ├── Performance Bottlenecks: [railway_performance_bottlenecks]
-│   ├── Resource Optimization: [railway_resource_optimization]
-│   └── Key Insights: [railway_key_insights]
 ├── 🔧 GITHUB MCP FINDINGS:
 │   ├── Repository Health: [github_repository_health]
 │   ├── Security Alerts: [github_security_alerts]
 │   ├── Code Quality Issues: [github_code_quality]
 │   ├── Collaboration Problems: [github_collaboration_problems]
+│   ├── PR Review Quality: [github_pr_review_quality]
 │   └── Key Insights: [github_key_insights]
 ├── 🗄️ SUPABASE MCP FINDINGS:
 │   ├── Database Performance: [supabase_database_performance]
@@ -436,12 +420,12 @@ Coverage: Infrastructure + Database + Frontend + Code + Documentation
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                            MULTI-MCP SYSTEM METRICS                         │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│ Infrastructure Metrics (Railway + GitHub):                                 │
-│ ├── Overall Infrastructure Health: [infrastructure_health]/100             │
-│ ├── Deployment Success Rate: [deployment_success_rate]%                    │
-│ ├── Resource Utilization: [resource_utilization]%                          │
+│ Repository & Code Quality Metrics (GitHub + Context7):                     │
 │ ├── Repository Health Score: [repository_health_score]/100                 │
-│ └── Security Posture: [security_posture]/100                               │
+│ ├── Code Quality Score: [code_quality_score]/100                           │
+│ ├── Security Posture: [security_posture]/100                               │
+│ ├── Documentation Coverage: [documentation_coverage]%                      │
+│ └── Review Quality: [review_quality]/100                                   │
 │                                                                             │
 │ Database Metrics (Supabase):                                               │
 │ ├── Database Performance: [database_performance]/100                       │
@@ -473,10 +457,10 @@ Coverage: Infrastructure + Database + Frontend + Code + Documentation
 
 📊 ULTRA-MONITORING & VALIDATION:
 ├── 🔍 MULTI-MCP MONITORING SETUP:
-│   ├── Infrastructure Monitoring:
-│   │   ├── Railway MCP: [railway_monitoring_setup]
+│   ├── Repository & Code Monitoring:
 │   │   ├── GitHub MCP: [github_monitoring_setup]
-│   │   └── Integration: [infra_monitoring_integration]
+│   │   ├── Context7 MCP: [context7_monitoring_setup]
+│   │   └── Integration: [repo_code_monitoring_integration]
 │   ├── Database Monitoring:
 │   │   ├── Supabase MCP: [supabase_monitoring_setup]
 │   │   └── Integration: [db_monitoring_integration]
@@ -484,10 +468,9 @@ Coverage: Infrastructure + Database + Frontend + Code + Documentation
 │   │   ├── Browser Tools MCP: [browser_monitoring_setup]
 │   │   ├── Puppeteer MCP: [puppeteer_monitoring_setup]
 │   │   └── Integration: [frontend_monitoring_integration]
-│   └── Code Quality Monitoring:
-│       ├── Context7 MCP: [context7_monitoring_setup]
+│   └── Security & Threat Monitoring:
 │       ├── Brave Search MCP: [brave_monitoring_setup]
-│       └── Integration: [code_monitoring_integration]
+│       └── Integration: [security_monitoring_integration]
 ├── 📈 ULTRA-SUCCESS METRICS:
 │   ├── Primary Multi-MCP KPIs:
 │   │   ├── System Health Score: [system_health_target]
@@ -595,7 +578,6 @@ Coverage: Infrastructure + Database + Frontend + Code + Documentation
 **Base Path:** `.claude/analysis/ultra-debug-[session-id]/`
 
 **Multi-MCP Analysis Files:**
-- `railway-analysis.json` - Infrastructure and deployment analysis
 - `github-analysis.json` - Repository health and security analysis
 - `supabase-analysis.json` - Database performance and security analysis
 - `browser-tools-analysis.json` - Console, network, and performance analysis
@@ -611,12 +593,11 @@ Coverage: Infrastructure + Database + Frontend + Code + Documentation
   "timestamp": "2025-01-15T12:00:00Z",
   "session_id": "ultra-debug-[session-id]",
   "target": "$ARGUMENTS",
-  "mcp_tools_used": 7,
+  "mcp_tools_used": 6,
   "analysis_depth": "ultra-comprehensive",
-  "total_duration": "15-23 minutes",
+  "total_duration": "12-18 minutes",
   "ultra_analysis": {
-    "infrastructure": {
-      "railway_mcp": {},
+    "repository_code": {
       "github_mcp": {},
       "correlations": []
     },
@@ -642,7 +623,7 @@ Coverage: Infrastructure + Database + Frontend + Code + Documentation
       "implementation_roadmap": {}
     },
     "ultra_solutions": {
-      "infrastructure_optimization": [],
+      "repository_code_optimization": [],
       "database_performance_tuning": [],
       "ui_ux_improvements": [],
       "code_quality_enhancements": [],
@@ -704,16 +685,16 @@ Comprehensive security analysis using all available MCP tools
 ## Success Criteria
 
 The Ultra-Debug command should provide:
-- **Complete multi-MCP tool utilization** (all 7 tools)
+- **Complete multi-MCP tool utilization** (all 6 available tools)
 - **System-wide issue detection** across all layers
 - **Multi-layer correlation analysis** not possible with individual tools
 - **Comprehensive solution strategies** leveraging all available MCP tools
 - **Ultra-actionable implementation roadmap** with multi-tool integration
 - **Predictive analysis** for future issue prevention
 
-**Time Target:** 15-23 minutes for ultra-comprehensive analysis
+**Time Target:** 12-18 minutes for ultra-comprehensive analysis
 **Context Window:** Optimized for multi-MCP tool processing
-**Coverage:** Infrastructure + Database + Frontend + Code + Documentation + Security
+**Coverage:** Repository + Database + Frontend + Code + Documentation + Security
 **Depth:** 10x deeper than existing debugging commands
 
 Target Analysis: $ARGUMENTS
