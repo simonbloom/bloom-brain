@@ -91,6 +91,14 @@ This agent is specifically designed for fast, effective UI bug fixing with a foc
 ## Output Format
 
 ```
+🚀 STARTING UI FIX ANALYSIS for: $ARGUMENTS
+═══════════════════════════════════════════════════════════════════════════════
+⏰ Started: [timestamp]
+🤖 Agent: ui-fix-agent
+⏱️ Target Time: 2-4 minutes
+🎯 Focus: Iterative UI bug fixing with visual verification
+═══════════════════════════════════════════════════════════════════════════════
+
 🔧 UI FIX ANALYSIS for: $ARGUMENTS
 Generated: [timestamp]
 Agent: ui-fix-agent
