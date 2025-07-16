@@ -29,50 +29,67 @@ A sophisticated command framework for Claude Code that provides advanced debuggi
 
 That's it! 🚀
 
-## For Claude Code in Cursor (Complete Setup)
+## For Claude Code in Cursor (Smart Auto-Detection)
 
-**Copy this entire prompt into Claude Code** for automatic installation and configuration:
+**Copy this smart prompt into Claude Code** - it auto-detects most settings and only asks what it needs to:
 
 ```
-Please install and configure Bloom Brain (https://github.com/simonbloom/bloom-brain) - a comprehensive command framework with 35+ advanced commands for debugging, feature development, and project management.
+Please install and configure Bloom Brain (https://github.com/simonbloom/bloom-brain) with smart auto-detection.
 
-I need you to:
-1. Ask me configuration questions about my project setup
-2. Install the Bloom Brain submodule
-3. Update my CLAUDE.md file with proper Bloom Brain integration
-4. Create bloom-brain.config.json with my preferences
-5. Test the installation and provide restart instructions
+First, auto-detect my project settings by examining these files:
+- package.json (name, dependencies, scripts)
+- vite.config.ts/js or next.config.js (ports, framework)
+- Lock files (pnpm-lock.yaml, yarn.lock, package-lock.json)
+- tsconfig.json (TypeScript detection)
+- Any config files that indicate framework/tooling
 
-Please ask me these questions:
-- Project name?
-- Main development server port? (default: 3000)
-- Storybook port? (default: 6006)
-- Package manager? (npm/pnpm/yarn)
-- Database/backend? (Supabase/PostgreSQL/etc.)
-- Framework? (React/Vue/Next.js/etc.)
-- UI library? (shadcn/ui/Material-UI/etc.)
-- Project directory path?
+Then show me what you detected and ask only what you can't determine:
 
-After I answer, please:
-1. Install the submodule: git submodule add https://github.com/simonbloom/bloom-brain.git .claude/bloom-brain
-2. Run initialization: ./.claude/bloom-brain/scripts/init-bloom-brain.sh
-3. Create .claude/bloom-brain.config.json with my answers
-4. Update my CLAUDE.md file with Bloom Brain integration and command references
-5. Test the installation works
-6. Give me restart instructions for Claude Code
+**Auto-Detection Logic:**
+1. **Project Name**: Extract from package.json "name" field
+2. **Framework**: Check package.json dependencies for React/Vue/Angular/Next.js
+3. **Package Manager**: Check for pnpm-lock.yaml (pnpm), yarn.lock (yarn), or package-lock.json (npm)
+4. **Main Port**: Check vite.config.ts server.port, next.config.js, or package.json scripts
+5. **Storybook Port**: Check package.json scripts for storybook command with -p flag
+6. **UI Library**: Check dependencies for @shadcn/ui, @mui/material, @chakra-ui, etc.
+7. **TypeScript**: Check for tsconfig.json and typescript in dependencies
+8. **Project Directory**: Use current working directory
 
-Then I should be able to use all 35+ commands like /understand, /ultra-debug, /new-feature, etc.
+**Format your detection like this:**
+```
+🔍 Auto-detecting project settings...
 
-Please start by asking me the configuration questions!
+✅ Detected:
+- Project Name: "my-app" (from package.json)
+- Framework: React + TypeScript (from dependencies)
+- Package Manager: pnpm (pnpm-lock.yaml found)
+- Main Dev Port: 3000 (from vite.config.ts)
+- Storybook Port: 6006 (from package.json scripts)
+- UI Library: shadcn/ui (from dependencies)
+- Project Directory: /path/to/current/directory
+
+❓ Only need to ask:
+1. Database/Backend: What database or backend do you use? (Supabase/PostgreSQL/Firebase/etc.)
+2. Are these detected settings correct? [Y/n]
+3. Any custom ports or overrides?
 ```
 
-**What this does:**
-- ✅ Asks configuration questions for your project
-- ✅ Installs Bloom Brain submodule automatically
-- ✅ Updates your CLAUDE.md with proper integration
-- ✅ Creates bloom-brain.config.json with your preferences
-- ✅ Tests installation and provides restart instructions
-- ✅ Makes all 35+ commands available after restart
+**After I confirm, please:**
+1. Install submodule: `git submodule add https://github.com/simonbloom/bloom-brain.git .claude/bloom-brain`
+2. Run initialization: `./.claude/bloom-brain/scripts/init-bloom-brain.sh`
+3. Create .claude/bloom-brain.config.json with the detected + confirmed settings
+4. Update my CLAUDE.md file with the proper Bloom Brain integration and all command references
+5. Test the installation works properly
+6. Provide clear restart instructions for Claude Code
+
+Please start by auto-detecting my project settings and showing me what you found!
+```
+
+**Why this is better:**
+- 🧠 **Smart Detection**: Auto-detects 85% of settings from your files
+- ❓ **Minimal Questions**: Only asks about database and confirmation
+- ⚡ **Faster Setup**: No more answering 8 questions every time
+- ✅ **Still Complete**: Full CLAUDE.md integration and all 35+ commands
 
 ## All 35 Commands
 
