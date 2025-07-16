@@ -1,37 +1,6 @@
-# Bloom Brain 🧠
+# Foolproof Installation Prompt (Includes CLAUDE.md Content)
 
-A sophisticated command framework for Claude Code that provides advanced debugging, analysis, and development workflow capabilities across multiple projects.
-
-## Quick Install
-
-### For New Projects
-
-1. **Add as submodule**:
-   ```bash
-   git submodule add https://github.com/simonbloom/bloom-brain.git .claude/bloom-brain
-   ```
-
-2. **Initialize**:
-   ```bash
-   ./.claude/bloom-brain/scripts/init-bloom-brain.sh
-   ```
-
-3. **Configure your project** (edit `.claude/bloom-brain.config.json`):
-   ```json
-   {
-     "main_port": "3000",
-     "storybook_port": "6006", 
-     "package_manager": "npm",
-     "database_info": "PostgreSQL",
-     "project_dir": "/path/to/your/project"
-   }
-   ```
-
-That's it! 🚀
-
-## For Claude Code in Cursor (Foolproof Installation)
-
-**Copy this complete prompt into Claude Code** - it auto-detects settings AND creates proper CLAUDE.md:
+## Copy This Complete Prompt Into Claude Code:
 
 ```
 Please install and configure Bloom Brain (https://github.com/simonbloom/bloom-brain) with smart auto-detection and explicit CLAUDE.md setup.
@@ -63,7 +32,31 @@ Please install and configure Bloom Brain (https://github.com/simonbloom/bloom-br
 1. Run: `git submodule add https://github.com/simonbloom/bloom-brain.git .claude/bloom-brain`
 2. Run: `./.claude/bloom-brain/scripts/init-bloom-brain.sh`
 
-**Step 4: Create .claude/bloom-brain.config.json with detected settings**
+**Step 4: Create .claude/bloom-brain.config.json with detected settings:**
+```json
+{
+  "project": {
+    "name": "[DETECTED_PROJECT_NAME]",
+    "type": "web-app",
+    "package_manager": "[DETECTED_PACKAGE_MANAGER]",
+    "framework": "[DETECTED_FRAMEWORK]",
+    "ui_library": "[DETECTED_UI_LIBRARY]"
+  },
+  "development": {
+    "main_port": "[DETECTED_MAIN_PORT]",
+    "storybook_port": "[DETECTED_STORYBOOK_PORT]",
+    "project_dir": "[DETECTED_PROJECT_DIR]"
+  },
+  "backend": {
+    "database_info": "[USER_PROVIDED_DATABASE]",
+    "database_mcp_tools": "mcp__supabase-mcp-server__*"
+  },
+  "bloom_brain": {
+    "version": "latest",
+    "initialized_at": "[CURRENT_TIMESTAMP]"
+  }
+}
+```
 
 **Step 5: Create or update CLAUDE.md with this EXACT content:**
 
@@ -79,6 +72,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Storybook**: http://localhost:[DETECTED_STORYBOOK_PORT]
 - **Package Manager**: `[DETECTED_PACKAGE_MANAGER]`
 - **Database**: [USER_PROVIDED_DATABASE]
+
+## Daily Workflow
+```bash
+# Development
+[DETECTED_PACKAGE_MANAGER] dev                    # Start development
+[DETECTED_PACKAGE_MANAGER] test                   # Run tests
+```
 
 ## Debug Commands (Most Used)
 ```bash
@@ -120,59 +120,8 @@ This project uses **Bloom Brain** - a portable Claude Code command framework wit
 - `/performance-agent` - Core Web Vitals, optimization
 - `/code-trace-agent` - Execution paths, logic errors
 - `/ux-agent` - User journeys, accessibility
-- `/architecture-agent` - Complete architecture analysis
-- `/ui-guidelines-agent` - UI/UX guidance and design system
-- And 20+ more specialized agents...
-
-### 🔄 Bloom Brain Management
-- `/update-bloom-brain` - Update to latest Bloom Brain version
-- `/push-bloom-brain` - Push improvements back to repository
-
-## Sync Commands
-```bash
-# Update Bloom Brain to latest version
-./.claude/bloom-brain/scripts/update-bloom-brain.sh
-```
-```
-
-**Step 6: Test and provide restart instructions**
-
-**Important Instructions:**
-- Replace ALL [DETECTED_*] and [USER_PROVIDED_*] placeholders with actual values
-- Actually CREATE the files, don't just show me the content
-- Make sure CLAUDE.md is properly written to disk
-- Test that the installation works before giving me restart instructions
-
-Please start by auto-detecting my project settings!
-```
-
-**Why this fixes the CLAUDE.md issue:**
-- 📝 **Explicit Content**: Includes the exact CLAUDE.md template to create
-- 🔄 **Placeholder Replacement**: Clear instructions to replace [DETECTED_*] values
-- ✅ **File Creation**: Explicitly tells Claude to CREATE files, not just show content
-- 🧪 **Verification**: Tests installation before declaring success
-
-## All 35 Commands
-
-### 🔍 **Multi-Agent Debugging**
-- `/understand` - Comprehensive 6-agent analysis (4-6 min)
-- `/ultra-debug` - Ultra-comprehensive 7-MCP system analysis (15-23 min)
-- `/performance` - Performance bottleneck analysis
-- `/security` - Security vulnerability assessment
-- `/status` - Project health check
-
-### 🚀 **Feature Development**
-- `/new-feature [description]` - Full feature planning with 5 specialized agents
-- `/impact-check [change]` - Breaking change analysis
-- `/architecture-map [area]` - System architecture review
-
-### 🔧 **Individual Agents**
-- `/browser-agent` - Console errors, network issues, client-side debugging
-- `/performance-agent` - Core Web Vitals, bottlenecks, optimization
-- `/code-trace-agent` - Execution paths, logic errors, dead code
-- `/ux-agent` - User journeys, friction points, accessibility
 - `/debug-synthesis-agent` - Visual representations, correlations
-- `/solution-agent` - Actionable recommendations, implementation guides
+- `/solution-agent` - Actionable recommendations
 - `/research-agent` - Latest patterns and best practices
 - `/db-agent` - Database schema analysis
 - `/arch-agent` - Architecture and integration analysis
@@ -183,7 +132,7 @@ Please start by auto-detecting my project settings!
 - `/development-workflow-agent` - Development workflow optimization
 - `/setup-agent` - Environment setup and configuration
 
-### 📋 **Project Management**
+### 📋 Project Management
 - `/list-plans` - List all saved plans
 - `/plan-status` - Check plan execution status
 - `/run-plan` - Execute saved implementation plans
@@ -191,48 +140,89 @@ Please start by auto-detecting my project settings!
 - `/save-this-plan` - Save specific plan with custom name
 - `/analysis-progress` - Real-time progress tracking
 
-### 🛠 **Development Tools**
+### 🛠 Development Tools
 - `/storybook` - Component documentation management
 - `/ui-fix` - UI issue diagnosis and fixes
 - `/go` - Quick project navigation and execution
 
-### 🔄 **Bloom Brain Management**
+### 🔄 Bloom Brain Management
 - `/init-bloom-brain` - Initialize Bloom Brain in new project
 - `/update-bloom-brain` - Update to latest Bloom Brain version
 - `/push-bloom-brain` - Push improvements back to repository
 
 ## Sync Commands
-
-### Daily Usage
 ```bash
-# Update to latest Bloom Brain
+# Update Bloom Brain to latest version
 ./.claude/bloom-brain/scripts/update-bloom-brain.sh
 
-# Push your improvements back
+# Push your improvements back to the repository
 ./.claude/bloom-brain/scripts/push-bloom-brain.sh
 ```
 
-## What's Included
+## Development Rules & Memories
 
-- **35+ Advanced Commands** - Multi-agent debugging, feature planning, architecture analysis
-- **Intelligent Hooks** - Auto-restart servers, smart preview URLs
-- **Template System** - Project-agnostic with placeholder substitution
-- **Sync Scripts** - Keep all projects updated automatically
-- **MCP Integration** - Supabase, GitHub, Railway, Browser tools, and more
+### UI Development & Testing
+- **ALWAYS provide localhost URLs** after UI changes:
+  - Single change: `View at: http://localhost:[DETECTED_MAIN_PORT]/specific-page`
+  - Multiple changes: List each URL with what changed
+- **NEVER declare features complete without checking browser console**
+- **Always use MCP tools for database operations**
 
-## Architecture
-
-- **Commands**: 35+ markdown files with specialized agent workflows
-- **Scripts**: Sync and initialization automation
-- **Templates**: Generic project templates with placeholders
-- **Hooks**: Smart server restart and preview URL generation
-
-## Cross-Project Sync
-
-Bloom Brain acts as a "live document" system - any improvements made to one project automatically sync to all others. Perfect for maintaining consistent development workflows across multiple projects.
+### Quality Assurance Protocol
+- **When user says "check everything"**, automatically:
+  1. Check browser console errors
+  2. Check network errors
+  3. Check database logs
+  4. Take screenshot if UI involved
+  5. Run performance audit if relevant
 
 ---
 
-**Created by**: Simon Bloom  
-**Purpose**: Unified development workflow across 5+ projects  
-**Architecture**: Git submodules with intelligent project customization
+_This CLAUDE.md file was generated by Bloom Brain installation wizard_
+```
+
+**Step 6: Test the installation:**
+1. Run: `./.claude/bloom-brain/scripts/update-bloom-brain.sh`
+2. Verify that `.claude/bloom-brain/commands/` contains 35+ command files
+3. Check that `ls .claude/bloom-brain/commands/ | wc -l` shows 35
+
+**Step 7: Provide restart instructions:**
+```
+🎉 **Bloom Brain Installation Complete!**
+
+**IMPORTANT - Next Steps:**
+1. **Restart Claude Code completely** (close and reopen the application)
+2. **Test commands**: Try `/understand` or `/status` 
+3. **If commands don't work**: 
+   - Check that `.claude/bloom-brain/commands/` contains command files
+   - Restart Claude Code again
+   - Try running `./.claude/bloom-brain/scripts/update-bloom-brain.sh`
+
+**Your Configuration:**
+- Main app: http://localhost:[DETECTED_MAIN_PORT]
+- Storybook: http://localhost:[DETECTED_STORYBOOK_PORT]
+- Package manager: [DETECTED_PACKAGE_MANAGER]
+- Database: [USER_PROVIDED_DATABASE]
+
+**Available Commands:** All 35+ commands are now available including:
+/understand, /ultra-debug, /new-feature, /performance, /status, /browser-agent, /architecture-agent, and many more!
+```
+
+**Important Instructions:**
+- Replace ALL [DETECTED_*] and [USER_PROVIDED_*] placeholders with actual values
+- Actually CREATE the files, don't just show me the content
+- Make sure CLAUDE.md is properly written to disk
+- Test that the installation works before giving me restart instructions
+
+Please start by auto-detecting my project settings!
+```
+
+## Key Improvements
+
+1. **Explicit CLAUDE.md Content**: Complete template with all 35+ commands
+2. **Clear Placeholders**: [DETECTED_*] values that must be replaced
+3. **File Creation Instructions**: "Actually CREATE the files, don't just show me the content"
+4. **Verification Steps**: Test installation before declaring success
+5. **Troubleshooting**: Clear restart instructions and fallback steps
+
+This should fix the CLAUDE.md update issue completely!
