@@ -1,0 +1,139 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit",
+      "Bash(task-master *)",
+      "Bash(git commit:*)",
+      "Bash(git add:*)",
+      "Bash(git checkout:*)",
+      "Bash({{PACKAGE_MANAGER}} *)",
+      "mcp__taskmaster-ai__*",
+      "mcp__browser-tools__*",
+      "mcp__supabase-mcp-server__*",
+      "mcp__brave-search__*",
+      "mcp__context7__*",
+      "Bash(./.claude/hooks/*)"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "comment": "Restart server and show preview after editing React/TypeScript files",
+        "matcher": "Edit(src/**/*.tsx|src/**/*.ts|src/**/*.css|*.config.*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.claude/hooks/restart-server.sh",
+            "env": {
+              "CLAUDE_CHANGED_FILES": "$CLAUDE_FILES",
+              "CLAUDE_TOOL": "$CLAUDE_TOOL"
+            }
+          },
+          {
+            "type": "command",
+            "command": "./.claude/hooks/open-preview.sh",
+            "env": {
+              "CLAUDE_CHANGED_FILES": "$CLAUDE_FILES",
+              "CLAUDE_TOOL": "$CLAUDE_TOOL"
+            }
+          }
+        ]
+      },
+      {
+        "comment": "Full restart for package.json or configuration changes",
+        "matcher": "Edit(package.json|{{PACKAGE_MANAGER}}-lock.yaml|vite.config.*|tailwind.config.*|tsconfig.*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Configuration change detected, performing full restart...'",
+            "env": {}
+          },
+          {
+            "type": "command",
+            "command": "./.claude/hooks/restart-server.sh",
+            "env": {
+              "CLAUDE_CHANGED_FILES": "$CLAUDE_FILES",
+              "CLAUDE_TOOL": "$CLAUDE_TOOL"
+            }
+          },
+          {
+            "type": "command",
+            "command": "./.claude/hooks/open-preview.sh",
+            "env": {
+              "CLAUDE_CHANGED_FILES": "$CLAUDE_FILES",
+              "CLAUDE_TOOL": "$CLAUDE_TOOL"
+            }
+          }
+        ]
+      },
+      {
+        "comment": "Special handling for Storybook-related files",
+        "matcher": "Edit(src/**/*.stories.*|src/stories/**/*|*.mdx)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Storybook files updated, ensuring Storybook is running...'",
+            "env": {}
+          },
+          {
+            "type": "command",
+            "command": "./.claude/hooks/restart-server.sh",
+            "env": {
+              "CLAUDE_CHANGED_FILES": "$CLAUDE_FILES",
+              "CLAUDE_TOOL": "$CLAUDE_TOOL"
+            }
+          },
+          {
+            "type": "command",
+            "command": "./.claude/hooks/open-preview.sh",
+            "env": {
+              "CLAUDE_CHANGED_FILES": "$CLAUDE_FILES",
+              "CLAUDE_TOOL": "$CLAUDE_TOOL"
+            }
+          }
+        ]
+      },
+      {
+        "comment": "Show URLs after successful deployment commands",
+        "matcher": "Bash({{PACKAGE_MANAGER}} *|npm *)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.claude/hooks/open-preview.sh",
+            "env": {
+              "CLAUDE_CHANGED_FILES": "",
+              "CLAUDE_TOOL": "$CLAUDE_TOOL"
+            }
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "comment": "Log tool activity for debugging",
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[TOOL START] $(date): $CLAUDE_TOOL' >> .claude/debug.log",
+            "env": {}
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "comment": "Log hook activity for debugging",
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[Hook] $(date): $CLAUDE_TOOL triggered' >> .claude/hooks/activity.log",
+            "env": {}
+          }
+        ]
+      }
+    ]
+  }
+}
