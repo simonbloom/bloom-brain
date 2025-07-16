@@ -29,19 +29,50 @@ A sophisticated command framework for Claude Code that provides advanced debuggi
 
 That's it! 🚀
 
-## For Claude Code in Cursor (Super Simple)
+## For Claude Code in Cursor (Complete Setup)
 
-Just paste this into Claude Code:
+**Copy this entire prompt into Claude Code** for automatic installation and configuration:
 
 ```
-Please install Bloom Brain for this project:
+Please install and configure Bloom Brain (https://github.com/simonbloom/bloom-brain) - a comprehensive command framework with 35+ advanced commands for debugging, feature development, and project management.
 
-1. Add submodule: git submodule add https://github.com/simonbloom/bloom-brain.git .claude/bloom-brain
-2. Initialize: ./.claude/bloom-brain/scripts/init-bloom-brain.sh
-3. Configure .claude/bloom-brain.config.json with my project settings
+I need you to:
+1. Ask me configuration questions about my project setup
+2. Install the Bloom Brain submodule
+3. Update my CLAUDE.md file with proper Bloom Brain integration
+4. Create bloom-brain.config.json with my preferences
+5. Test the installation and provide restart instructions
 
-Then test with: /understand
+Please ask me these questions:
+- Project name?
+- Main development server port? (default: 3000)
+- Storybook port? (default: 6006)
+- Package manager? (npm/pnpm/yarn)
+- Database/backend? (Supabase/PostgreSQL/etc.)
+- Framework? (React/Vue/Next.js/etc.)
+- UI library? (shadcn/ui/Material-UI/etc.)
+- Project directory path?
+
+After I answer, please:
+1. Install the submodule: git submodule add https://github.com/simonbloom/bloom-brain.git .claude/bloom-brain
+2. Run initialization: ./.claude/bloom-brain/scripts/init-bloom-brain.sh
+3. Create .claude/bloom-brain.config.json with my answers
+4. Update my CLAUDE.md file with Bloom Brain integration and command references
+5. Test the installation works
+6. Give me restart instructions for Claude Code
+
+Then I should be able to use all 35+ commands like /understand, /ultra-debug, /new-feature, etc.
+
+Please start by asking me the configuration questions!
 ```
+
+**What this does:**
+- ✅ Asks configuration questions for your project
+- ✅ Installs Bloom Brain submodule automatically
+- ✅ Updates your CLAUDE.md with proper integration
+- ✅ Creates bloom-brain.config.json with your preferences
+- ✅ Tests installation and provides restart instructions
+- ✅ Makes all 35+ commands available after restart
 
 ## All 35 Commands
 
