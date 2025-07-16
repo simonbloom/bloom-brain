@@ -208,6 +208,38 @@ apply_initial_customizations() {
     success "Initial customizations applied"
 }
 
+# Create command discovery symlink
+create_command_symlink() {
+    log "Setting up command discovery..."
+    
+    # Remove existing .claude/commands if it's a directory (not a symlink)
+    if [ -d ".claude/commands" ] && [ ! -L ".claude/commands" ]; then
+        warning "Found existing .claude/commands directory, backing up..."
+        mv ".claude/commands" ".claude/commands.backup.$(date +%s)"
+    fi
+    
+    # Remove existing symlink if it exists
+    if [ -L ".claude/commands" ]; then
+        rm ".claude/commands"
+    fi
+    
+    # Create symlink to bloom-brain commands
+    ln -sf bloom-brain/commands .claude/commands
+    
+    # Verify symlink was created
+    if [ -L ".claude/commands" ]; then
+        success "Command discovery symlink created"
+        log "Commands are now discoverable by Claude Code"
+        
+        # Test that commands are discoverable
+        COMMAND_COUNT=$(ls .claude/commands/ 2>/dev/null | wc -l | tr -d ' ')
+        log "Available commands: $COMMAND_COUNT"
+    else
+        error "Failed to create command discovery symlink"
+        error "You may need to create it manually: ln -sf bloom-brain/commands .claude/commands"
+    fi
+}
+
 # Create the sync commands
 create_sync_commands() {
     log "Creating sync commands..."
@@ -292,6 +324,9 @@ main() {
     # Apply customizations
     apply_initial_customizations
     
+    # Create command discovery symlink
+    create_command_symlink
+    
     # Create sync commands
     create_sync_commands
     
@@ -308,9 +343,15 @@ main() {
     success "Your project is now ready with the Bloom Brain framework"
     
     log "Next steps:"
-    echo "  1. Commit the changes: git add -A && git commit -m 'Add Bloom Brain framework'"
-    echo "  2. Use /update-bloom-brain to get latest changes"
-    echo "  3. Use /push-bloom-brain to share your improvements"
+    echo "  1. **Restart Claude Code completely** (close and reopen)"
+    echo "  2. **Test commands**: Try typing /understand or /status"
+    echo "  3. Commit the changes: git add -A && git commit -m 'Add Bloom Brain framework'"
+    echo "  4. Use /update-bloom-brain to get latest changes"
+    echo "  5. Use /push-bloom-brain to share your improvements"
+    echo ""
+    log "Troubleshooting:"
+    echo "  If commands don't appear: Check that symlink exists with 'ls -la .claude/commands/'"
+    echo "  If no symlink: Run 'ln -sf bloom-brain/commands .claude/commands'"
 }
 
 # Handle script termination

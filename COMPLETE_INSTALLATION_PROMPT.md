@@ -153,7 +153,20 @@ Run this to verify everything works:
 ./.claude/bloom-brain/scripts/update-bloom-brain.sh
 ```
 
-### Step 5: Restart Instructions
+### Step 5: Fix Command Discovery (IMPORTANT)
+Claude Code needs commands in a specific location to discover them:
+```bash
+# Create symlink so Claude Code can find the commands
+ln -sf bloom-brain/commands .claude/commands
+
+# Verify the symlink was created
+ls -la .claude/commands/
+
+# Test that commands are discoverable
+ls .claude/commands/ | grep understand
+```
+
+### Step 6: Restart Instructions
 After everything is set up, tell me:
 
 "🎉 **Bloom Brain Installation Complete!**
@@ -161,7 +174,10 @@ After everything is set up, tell me:
 **Next Steps:**
 1. **Restart Claude Code** completely (close and reopen)
 2. **Test a command**: Try typing `/understand` or `/status`
-3. **If commands don't work**: Check that `.claude/bloom-brain/commands/` contains the command files
+3. **If commands don't work**: 
+   - Check that `.claude/bloom-brain/commands/` contains the command files
+   - Make sure the symlink exists: `ls -la .claude/commands/`
+   - If no symlink, create it: `ln -sf bloom-brain/commands .claude/commands`
 
 **Available Commands**: You now have 35+ commands available including:
 - `/understand` - Comprehensive debugging

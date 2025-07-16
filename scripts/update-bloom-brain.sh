@@ -129,6 +129,45 @@ apply_customizations() {
     fi
 }
 
+# Check and fix command discovery symlink
+check_command_symlink() {
+    log "Checking command discovery setup..."
+    
+    if [ ! -L ".claude/commands" ]; then
+        warning "Command discovery symlink missing"
+        log "Creating symlink for Claude Code command discovery..."
+        
+        # Remove existing directory if it exists
+        if [ -d ".claude/commands" ]; then
+            warning "Found existing .claude/commands directory, backing up..."
+            mv ".claude/commands" ".claude/commands.backup.$(date +%s)"
+        fi
+        
+        # Create symlink
+        ln -sf bloom-brain/commands .claude/commands
+        
+        if [ -L ".claude/commands" ]; then
+            success "Command discovery symlink created"
+        else
+            error "Failed to create symlink - you may need to run: ln -sf bloom-brain/commands .claude/commands"
+        fi
+    else
+        success "Command discovery symlink already exists"
+    fi
+    
+    # Verify symlink points to the right place
+    if [ -L ".claude/commands" ]; then
+        SYMLINK_TARGET=$(readlink .claude/commands)
+        if [ "$SYMLINK_TARGET" != "bloom-brain/commands" ]; then
+            warning "Symlink points to wrong location: $SYMLINK_TARGET"
+            log "Fixing symlink..."
+            rm ".claude/commands"
+            ln -sf bloom-brain/commands .claude/commands
+            success "Symlink fixed"
+        fi
+    fi
+}
+
 # Main execution
 main() {
     log "Starting Bloom Brain update..."
@@ -142,6 +181,9 @@ main() {
     
     # Apply customizations
     apply_customizations
+    
+    # Check command discovery
+    check_command_symlink
     
     # Show status
     log "Bloom Brain Status:"

@@ -231,6 +231,41 @@ Please start by auto-detecting my project settings!
 
 Bloom Brain acts as a "live document" system - any improvements made to one project automatically sync to all others. Perfect for maintaining consistent development workflows across multiple projects.
 
+## Troubleshooting
+
+### Commands Not Appearing When Typing `/`
+
+**Problem**: After installing Bloom Brain, when you type `/` in Claude Code, the `/understand` command (and other Bloom Brain commands) don't appear in the autocomplete.
+
+**Cause**: Claude Code looks for commands in `.claude/commands/` but Bloom Brain installs them in `.claude/bloom-brain/commands/`.
+
+**Solution**: Create a symlink so Claude Code can discover the commands:
+
+```bash
+# Navigate to your project directory
+cd /path/to/your/project
+
+# Create symlink from .claude/commands to bloom-brain/commands
+ln -sf bloom-brain/commands .claude/commands
+
+# Verify the symlink was created
+ls -la .claude/commands/
+
+# Test that commands are discoverable
+ls .claude/commands/ | grep understand
+```
+
+**Verification**: 
+1. Restart Claude Code completely (close and reopen)
+2. Type `/` and you should see `/understand` and other Bloom Brain commands
+3. If still not working, try running: `./.claude/bloom-brain/scripts/update-bloom-brain.sh`
+
+### Other Common Issues
+
+- **Submodule not updating**: Run `git submodule update --remote .claude/bloom-brain`
+- **Commands give errors**: Check that `.claude/bloom-brain.config.json` exists and has valid JSON
+- **Hooks not working**: Verify hook files are executable: `chmod +x .claude/hooks/*.sh`
+
 ---
 
 **Created by**: Simon Bloom  

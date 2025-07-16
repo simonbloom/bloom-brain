@@ -60,6 +60,21 @@ This comprehensive prompt:
 3. User answers questions about their project
 4. Claude installs submodule and configures everything
 5. Claude updates CLAUDE.md with project-specific details
-6. Claude provides restart instructions
-7. User restarts Claude Code
-8. All 35+ commands are available and working
+6. **Claude creates symlink for command discovery**: `ln -sf bloom-brain/commands .claude/commands`
+7. Claude provides restart instructions
+8. User restarts Claude Code
+9. All 35+ commands are available and working
+
+## Troubleshooting
+
+### Commands Not Appearing After Installation
+
+**Problem**: After restart, `/understand` and other commands don't appear when typing `/`
+
+**Solution**: Create the command discovery symlink:
+```bash
+ln -sf bloom-brain/commands .claude/commands
+ls -la .claude/commands/  # Verify symlink exists
+```
+
+**Why**: Claude Code looks for commands in `.claude/commands/` but Bloom Brain installs them in `.claude/bloom-brain/commands/`
