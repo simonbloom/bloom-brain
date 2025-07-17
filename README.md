@@ -65,7 +65,7 @@ Please install and configure Bloom Brain (https://github.com/simonbloom/bloom-br
 
 **Step 4: Create .claude/bloom-brain.config.json with detected settings**
 
-**Step 5: Create or update CLAUDE.md with this EXACT content:**
+**Step 5: SAFELY merge with existing CLAUDE.md (preserving all custom content):**
 
 ```markdown
 # CLAUDE.md
@@ -83,7 +83,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Debug Commands (Most Used)
 ```bash
 /understand                     # Multi-agent debugging (6-10 min)
-/ultra-debug                    # All 7 MCP tools analysis (15-23 min)
+/ultra-debug                    # All 6 MCP tools analysis (12-18 min)
 /performance                    # Performance analysis
 /status                         # Project health check
 ```
@@ -99,13 +99,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 # Bloom Brain System
 
-This project uses **Bloom Brain** - a portable Claude Code command framework with 35+ advanced commands.
+This project uses **Bloom Brain** - a portable Claude Code command framework with 36 advanced commands.
 
 ## All Available Commands
 
 ### 🔍 Multi-Agent Debugging
 - `/understand` - Comprehensive 6-agent analysis
-- `/ultra-debug` - Ultra-comprehensive 7-MCP system analysis
+- `/ultra-debug` - Ultra-comprehensive 6-MCP system analysis
+- `/comparison-debug` - Stubborn functionality analysis comparing working/failing features
 - `/performance` - Performance bottleneck analysis
 - `/security` - Security vulnerability assessment
 - `/status` - Project health check
@@ -146,17 +147,20 @@ This project uses **Bloom Brain** - a portable Claude Code command framework wit
 Please start by auto-detecting my project settings!
 ```
 
-**Why this fixes the CLAUDE.md issue:**
-- 📝 **Explicit Content**: Includes the exact CLAUDE.md template to create
+**Why this installation process is safe:**
+- 📝 **Smart Merging**: Intelligently preserves existing custom content while adding Bloom Brain features
 - 🔄 **Placeholder Replacement**: Clear instructions to replace [DETECTED_*] values
+- 💾 **Automatic Backup**: Creates timestamped backups before any changes
 - ✅ **File Creation**: Explicitly tells Claude to CREATE files, not just show content
 - 🧪 **Verification**: Tests installation before declaring success
+- 🔄 **Rollback Support**: Easy recovery if anything goes wrong
 
-## All 35 Commands
+## All 36 Commands
 
 ### 🔍 **Multi-Agent Debugging**
 - `/understand` - Comprehensive 6-agent analysis (4-6 min)
-- `/ultra-debug` - Ultra-comprehensive 7-MCP system analysis (15-23 min)
+- `/ultra-debug` - Ultra-comprehensive 6-MCP system analysis (12-18 min)
+- `/comparison-debug` - Stubborn functionality analysis comparing working/failing features
 - `/performance` - Performance bottleneck analysis
 - `/security` - Security vulnerability assessment
 - `/status` - Project health check
@@ -214,15 +218,17 @@ Please start by auto-detecting my project settings!
 
 ## What's Included
 
-- **35+ Advanced Commands** - Multi-agent debugging, feature planning, architecture analysis
+- **36 Advanced Commands** - Multi-agent debugging, feature planning, architecture analysis
 - **Intelligent Hooks** - Auto-restart servers, smart preview URLs
 - **Template System** - Project-agnostic with placeholder substitution
 - **Sync Scripts** - Keep all projects updated automatically
-- **MCP Integration** - Supabase, GitHub, Railway, Browser tools, and more
+- **MCP Integration** - Supabase, GitHub, Browser tools, and more
+- **Standardized Analysis Storage** - Consistent data handling across all commands
+- **Safe Installation Process** - Automatic backup and rollback for CLAUDE.md preservation
 
 ## Architecture
 
-- **Commands**: 35+ markdown files with specialized agent workflows
+- **Commands**: 36 markdown files with specialized agent workflows
 - **Scripts**: Sync and initialization automation
 - **Templates**: Generic project templates with placeholders
 - **Hooks**: Smart server restart and preview URL generation
