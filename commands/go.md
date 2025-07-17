@@ -11,7 +11,7 @@ Restart the development servers and provide preview URLs for immediate testing.
 ✅ **Servers restarted successfully!**
 
 The development environment is now ready:
-- Main app will be available at http://localhost:6123
-- Storybook (if running) will be available at http://localhost:7123
+- **Local App**: http://localhost:5123
+- **Storybook**: http://localhost:5223
 
 You can now test your changes in the browser.
