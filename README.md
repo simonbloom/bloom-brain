@@ -155,7 +155,7 @@ Please start by auto-detecting my project settings!
 - 🧪 **Verification**: Tests installation before declaring success
 - 🔄 **Rollback Support**: Easy recovery if anything goes wrong
 
-## All 36 Commands
+## All 39 Commands
 
 ### 🔍 **Multi-Agent Debugging**
 - `/understand` - Comprehensive 6-agent analysis (4-6 min)
@@ -167,6 +167,7 @@ Please start by auto-detecting my project settings!
 
 ### 🚀 **Feature Development**
 - `/new-feature [description]` - Full feature planning with 5 specialized agents
+- `/expand-feature [description]` - Interactive feature expansion with multi-agent analysis
 - `/impact-check [change]` - Breaking change analysis
 - `/architecture-map [area]` - System architecture review
 
@@ -186,6 +187,9 @@ Please start by auto-detecting my project settings!
 - `/ui-guidelines-agent` - UI/UX guidance and design system
 - `/development-workflow-agent` - Development workflow optimization
 - `/setup-agent` - Environment setup and configuration
+- `/expansion-strategist-agent` - Feature expansion architecture and strategy
+- `/feature-detective-agent` - Feature analysis and investigation
+- `/interactive-planner-agent` - Interactive planning and prioritization
 
 ### 📋 **Project Management**
 - `/list-plans` - List all saved plans
@@ -218,7 +222,7 @@ Please start by auto-detecting my project settings!
 
 ## What's Included
 
-- **36 Advanced Commands** - Multi-agent debugging, feature planning, architecture analysis
+- **39 Advanced Commands** - Multi-agent debugging, feature planning, architecture analysis
 - **Intelligent Hooks** - Auto-restart servers, smart preview URLs
 - **Template System** - Project-agnostic with placeholder substitution
 - **Sync Scripts** - Keep all projects updated automatically
@@ -228,7 +232,7 @@ Please start by auto-detecting my project settings!
 
 ## Architecture
 
-- **Commands**: 36 markdown files with specialized agent workflows
+- **Commands**: 39 markdown files with specialized agent workflows
 - **Scripts**: Sync and initialization automation
 - **Templates**: Generic project templates with placeholders
 - **Hooks**: Smart server restart and preview URL generation
