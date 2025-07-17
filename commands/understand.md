@@ -35,8 +35,44 @@ Sequential processing for unified insights:
 └── 🛠️ Solution Agent: Actionable recommendations
 ```
 
-## Context Store System
+## Analysis Storage
 
+**Save debug insights to:**
+`.claude/analysis/debug-[session-id]/debug-analysis.json`
+
+**Standard Structure:**
+```json
+{
+  "timestamp": "2025-01-15T12:00:00Z",
+  "agent": "understand-orchestrator",
+  "target": "$ARGUMENTS",
+  "session_id": "debug-[session-id]",
+  "analysis_type": "debug",
+  "version": "1.0",
+  "analysis": {
+    "browser_analysis": {},
+    "performance_analysis": {},
+    "code_trace_analysis": {},
+    "ux_analysis": {},
+    "debug_synthesis": {},
+    "solution_implementation": {}
+  }
+}
+```
+
+**Access Pattern:**
+```bash
+# View analysis
+cat .claude/analysis/debug-[session-id]/debug-analysis.json
+
+# List all debug analyses
+ls .claude/analysis/debug-*/
+
+# Search analyses by date
+ls .claude/analysis/debug-*/ | grep $(date +%Y%m%d)
+```
+
+### Agent Communication System
 All agent outputs are stored in `.claude/analysis/debug-[session-id]/` for:
 - **Cross-agent communication**
 - **Progressive disclosure of results**

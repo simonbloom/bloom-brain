@@ -572,12 +572,49 @@ Coverage: Repository + Database + Frontend + Code + Documentation
     └── [ultra_evolution_3]: [ultra_evolution_description_3]
 ```
 
-## Context Store System
+## Analysis Storage
 
-### Ultra-Debug Context Store Structure
-**Base Path:** `.claude/analysis/ultra-debug-[session-id]/`
+**Save ultra-comprehensive system analysis to:**
+`.claude/analysis/ultra-debug-[session-id]/ultra-debug-analysis.json`
 
-**Multi-MCP Analysis Files:**
+**Standard Structure:**
+```json
+{
+  "timestamp": "2025-01-15T12:00:00Z",
+  "agent": "ultra-debug-orchestrator",
+  "target": "$ARGUMENTS",
+  "session_id": "ultra-debug-[session-id]",
+  "analysis_type": "ultra-debug",
+  "version": "1.0",
+  "analysis": {
+    "mcp_tools_used": 6,
+    "analysis_depth": "ultra-comprehensive",
+    "total_duration": "12-18 minutes",
+    "ultra_analysis": {
+      "repository_code": {},
+      "database": {},
+      "frontend_ui": {},
+      "code_documentation": {},
+      "ultra_synthesis": {}
+    }
+  }
+}
+```
+
+**Access Pattern:**
+```bash
+# View analysis
+cat .claude/analysis/ultra-debug-[session-id]/ultra-debug-analysis.json
+
+# List all ultra-debug analyses
+ls .claude/analysis/ultra-debug-*/
+
+# Search analyses by date
+ls .claude/analysis/ultra-debug-*/ | grep $(date +%Y%m%d)
+```
+
+### Multi-MCP Analysis Files
+Individual MCP tool outputs are also stored:
 - `github-analysis.json` - Repository health and security analysis
 - `supabase-analysis.json` - Database performance and security analysis
 - `browser-tools-analysis.json` - Console, network, and performance analysis
@@ -587,7 +624,7 @@ Coverage: Repository + Database + Frontend + Code + Documentation
 - `ultra-synthesis.json` - Multi-MCP correlation and synthesis analysis
 - `ultra-solutions.json` - Comprehensive multi-tool implementation strategies
 
-### Ultra-Context Store JSON Structure
+### Legacy JSON Structure
 ```json
 {
   "timestamp": "2025-01-15T12:00:00Z",

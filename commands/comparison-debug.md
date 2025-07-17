@@ -345,12 +345,47 @@ Session ID: [session-id]
     └── Actionability Score: [actionability_score]/10
 ```
 
-## Context Store System
+## Analysis Storage
 
-### Comparison Debug Context Store Structure
-**Base Path:** `.claude/analysis/comparison-debug-[session-id]/`
+**Save comparative analysis results to:**
+`.claude/analysis/comparison-debug-[session-id]/comparison-debug-analysis.json`
 
-**Multi-Agent Analysis Files:**
+**Standard Structure:**
+```json
+{
+  "timestamp": "2025-01-15T12:00:00Z",
+  "agent": "comparison-debug-orchestrator",
+  "target": "$ARGUMENTS",
+  "session_id": "comparison-debug-[session-id]",
+  "analysis_type": "comparison-debug",
+  "version": "1.0",
+  "analysis": {
+    "agents_used": 5,
+    "analysis_depth": "comparative",
+    "total_duration": "6-8 minutes",
+    "comparison_analysis": {
+      "working_feature": {},
+      "failing_feature": {},
+      "comparative_synthesis": {}
+    }
+  }
+}
+```
+
+**Access Pattern:**
+```bash
+# View analysis
+cat .claude/analysis/comparison-debug-[session-id]/comparison-debug-analysis.json
+
+# List all comparison debug analyses
+ls .claude/analysis/comparison-debug-*/
+
+# Search analyses by date
+ls .claude/analysis/comparison-debug-*/ | grep $(date +%Y%m%d)
+```
+
+### Multi-Agent Analysis Files
+Individual agent outputs are also stored:
 - `code-comparison-analysis.json` - Structural differences and code path analysis
 - `data-flow-analysis.json` - Request/response pattern comparison
 - `error-pattern-analysis.json` - Failure mode and exception analysis
@@ -358,7 +393,7 @@ Session ID: [session-id]
 - `fresh-implementation-analysis.json` - Modern approaches and alternatives
 - `comparison-synthesis.json` - Multi-agent consensus and evidence ranking
 
-### Context Store JSON Structure
+### Legacy JSON Structure
 ```json
 {
   "timestamp": "2025-01-15T12:00:00Z",

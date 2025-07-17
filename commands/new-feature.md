@@ -198,6 +198,42 @@ touch .claude/analysis/[feature-name]/analysis-context.json
 3. [action_item]
 ```
 
+## Analysis Storage
+
+**Save feature analysis to:**
+`.claude/analysis/feature-[feature-name]/feature-analysis.json`
+
+**Standard Structure:**
+```json
+{
+  "timestamp": "2025-01-15T12:00:00Z",
+  "agent": "new-feature-orchestrator",
+  "target": "$ARGUMENTS",
+  "session_id": "feature-[feature-name]-[timestamp]",
+  "analysis_type": "feature",
+  "version": "1.0",
+  "analysis": {
+    "research_findings": {},
+    "database_analysis": {},
+    "architecture_analysis": {},
+    "risk_analysis": {},
+    "implementation_plan": {}
+  }
+}
+```
+
+**Access Pattern:**
+```bash
+# View analysis
+cat .claude/analysis/feature-[feature-name]/feature-analysis.json
+
+# List all feature analyses
+ls .claude/analysis/feature-*/
+
+# Search analyses by date
+ls .claude/analysis/feature-*/ | grep $(date +%Y%m%d)
+```
+
 ### Individual Agent Access
 You can access individual agent outputs at any time:
 - `cat .claude/analysis/[feature-name]/research-findings.json`
